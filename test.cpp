@@ -10,7 +10,7 @@ constexpr int max_map_count = 1;
 constexpr int max_player_count = 32;
 using my_match_maker_type = match_maker<player_id_type, max_map_count, max_player_count>;
 
-#define PRINT_PROGRESS 0
+#define PRINT_PROGRESS 1
 
 inline int random(int min, int max)
 {
