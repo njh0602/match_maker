@@ -58,7 +58,7 @@ Concept
   
   (uid 2, uid 4) matched!
   
-  * When the match is over, all queues and player memory are automatically destroyed
+  * When the match is over, all queues and player memory are automatically destroyed.
   * When the player expands to another queue, it wastes less memory because the pointer is expanded rather than copied.
 ~~~
 
@@ -94,7 +94,7 @@ g++ -std=c++11 -Wall -o tests test.cpp
 - The preference map does not change over the match time.
 - The maximum number of players must be a power of 2.
 -  `add_user()` and `remove_user()` functions that are called at once do not work normally. (Match requests are usually coming separately. See the test.cpp)
-- Not Thread Safe
+- Not Thread Safe.
 
 Contributions
 -------------
