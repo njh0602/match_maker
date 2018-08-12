@@ -21,15 +21,15 @@ Concept
   .   (times over)
   .
   
-  +--2--+               +--4--+
-  |  2  | <--- expand   |  2  |    
-  |  1  |               |  3  |
-  |  3  |               +-----+         * queue is sorted by elo
-  +-----+
-  (uid 2, uid 1) matched! (This is indicated by the callback function.)           
+  +---2---+             +--4--+
+  | 2(new)| <--- expand |  2  |    
+  | 1     |             |  3  |
+  | 3(new)|             +-----+   * queue is sorted by elo
+  +-------+
+  (uid 3, uid 1) matched! (This is indicated by the callback function.)           
   
   +--2--+  +--4--+
-  |  3  |  |  3  |  after match.
+  |  2  |  |  2  |  after match.
   +-----+  +-----+
 ~~~
 
