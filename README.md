@@ -31,6 +31,35 @@ Concept
   +--2--+  +--4--+
   |  2  |  |  2  |  after match.
   +-----+  +-----+
+  
+  .
+  .  (times over)
+  .
+                                                                 insert
+  [uid: 4] [elo: 1300] [perfer map: 1] [prefer player count: 8] ------->  +--2--+  +--4--+  +--8--+
+                                                                          |  2  |  |  2  |  |  4  |
+                                                                          +-----+  +-----+  +-----+
+  .
+  .  (times over)
+  .
+  
+  +--2--+  +---4---+                +--8--+
+  |  2  |  | 4(new)|  <--- expand   |  4  |
+  +-----+  |   2   |                +-----+
+           +-------+
+  .
+  .  (times over)
+  .         
+  
+  +---2---+               +--4--+ +--8--+
+  | 4(new)|  <--- expand  |  4  | |  4  |
+  |   2   |               |  2  | +-----+
+  +-------+               +-----+
+  
+  (uid 2, uid 4) matched!
+  
+  * When the match is over, all queues and player memory are automatically destroyed
+  * When the player expands to another queue, it wastes less memory because the pointer is expanded rather than copied.
 ~~~
 
 ## Usage
