@@ -7,22 +7,30 @@ Concept
 -------
 
 ~~~
-                                                                      +--2--+ 
-  [uid: 1] [elo: 1000] [perfer map: 1] [prefer player count: 2] --->  |  1  |  
-                                                                      +-----+ 
-                                                                      +--2--+  +--4--+
-  [uid: 2] [elo: 1200] [perfer map: 1] [prefer player count: 4] --->  |  1  |  |  2  |
-                                                                      +-----+  +-----+
+                                                                insert    +-goal count: 2-+ 
+  [uid: 1] [elo: 1000] [perfer map: 1] [prefer player count: 2] ------->  |     uid:1     |  
+                                                                          +---------------+ 
+                                                                insert    +-goal count: 2-+  +-goal count: 4-+
+  [uid: 2] [elo: 1200] [perfer map: 1] [prefer player count: 4] ------->  |     uid:1     |  |     uid:2     |
+                                                                          +---------------+  +---------------+               
+                                                                insert    +-goal count: 2-+  +-goal count: 4-+
+  [uid: 3] [elo: 900]  [perfer map: 1] [prefer player count: 4] ------->  |     uid:1     |  |     uid:2     |
+                                                                          +---------------+  |     uid:3     |
+                                                                                             +---------------+
   .
   .   (times over)
   .
   
   +--2--+               +--4--+
   |  2  | <--- expand   |  2  |    
-  |  1  |               +-----+
-  +-----+                        * queue is sorted by elo
+  |  1  |               |  3  |
+  |  3  |               +-----+         * queue is sorted by elo
+  +-----+
+  (uid 2, uid 1) matched! (This is indicated by the callback function.)           
   
-  matched! (This is indicated by the callback function.)           
+  +--2--+  +--4--+
+  |  3  |  |  3  |  after match.
+  +-----+  +-----+
 ~~~
 
 ## Usage
